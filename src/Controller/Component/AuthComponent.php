@@ -644,7 +644,7 @@ class AuthComponent extends Component
      * cookies + sessions will be used.
      *
      * @param string $key field to retrieve. Leave null to get entire User record
-     * @return array|null Either User record or null if no user is logged in.
+     * @return array|string|null Either User record or null if no user is logged in.
      * @link http://book.cakephp.org/3.0/en/controllers/components/authentication.html#accessing-the-logged-in-user
      */
     public function user($key = null)
