@@ -86,10 +86,7 @@ trait InstanceConfigTrait
      */
     public function config($key = null, $value = null, $merge = true)
     {
-        if (!$this->_configInitialized) {
-            $this->_config = $this->_defaultConfig;
-            $this->_configInitialized = true;
-        }
+        $this->_configInit();
 
         if (is_array($key) || func_num_args() >= 2) {
             $this->_configWrite($key, $value, $merge);
@@ -127,13 +124,25 @@ trait InstanceConfigTrait
      */
     public function configShallow($key, $value = null)
     {
+        $this->_configInit();
+        $this->_configWrite($key, $value, 'shallow');
+
+        return $this;
+    }
+
+    /**
+     * Initializes config defaults.
+     *
+     * @return void
+     */
+    protected function _configInit()
+    {
+        $configureKey = str_replace('\\', '.', __NAMESPACE__ . '\\' . __CLASS__);
+        debug($configureKey);
         if (!$this->_configInitialized) {
-            $this->_config = $this->_defaultConfig;
+            $this->_config = (array)Configure::read($configureKey) + $this->_defaultConfig;
             $this->_configInitialized = true;
         }
-
-        $this->_configWrite($key, $value, 'shallow');
-        return $this;
     }
 
     /**
