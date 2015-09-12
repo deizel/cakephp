@@ -300,7 +300,7 @@ trait QueryTrait
      *
      * @param callable|null $formatter The formatting callable.
      * @param bool|int $mode Whether or not to overwrite, append or prepend the formatter.
-     * @return $this|array
+     * @return $this|array|\Cake\ORM\ResultSet
      */
     public function formatResults(callable $formatter = null, $mode = 0)
     {
@@ -344,7 +344,7 @@ trait QueryTrait
      * Get the first result from the executing query or raise an exception.
      *
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When there is no first record.
-     * @return mixed The first result from the ResultSet.
+     * @return \Cake\ORM\Entity|array The first result from the ResultSet.
      */
     public function firstOrFail()
     {

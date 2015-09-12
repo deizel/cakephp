@@ -24,6 +24,10 @@ use Exception;
  * The CakePHP FlashComponent provides a way for you to write a flash variable
  * to the session from your controllers, to be rendered in a view with the
  * FlashHelper.
+ *
+ * @method void success($message, array $options = []) Set flash message with 'success' element.
+ * @method void warning($message, array $options = []) Set flash message with 'warning' element.
+ * @method void error($message, array $options = []) Set flash message with 'error' element.
  */
 class FlashComponent extends Component
 {

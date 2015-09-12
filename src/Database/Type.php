@@ -88,7 +88,7 @@ class Type
      *
      * @param string $name type identifier
      * @throws \InvalidArgumentException If type identifier is unknown
-     * @return Type
+     * @return Type|Type\DateTimeType
      */
     public static function build($name)
     {
